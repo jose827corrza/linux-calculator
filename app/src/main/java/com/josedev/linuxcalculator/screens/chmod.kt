@@ -98,7 +98,7 @@ fun ChmodScreen(
                         fontSize = 24.sp,
                         modifier = Modifier.padding(1.dp))
                     Text(
-                        text = state.numberCode,
+                        text = state.user.toString() + state.group.toString() + state.other.toString(),
                         fontWeight = FontWeight.Normal,
                         fontSize = 24.sp,
                         modifier = Modifier.padding())
@@ -143,17 +143,38 @@ fun ChmodScreen(
                         fourthValue = userReadingState,
                         fourthValueFun = {
                             userReadingState = !it
-                            chmodViewModel.onEvent(ChmodEvent.PermissionChanged(Classes.USER, userReadingState, userWritingState, userExecutingState))
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.USER,
+                                    userReadingState,
+                                    userWritingState,
+                                    userExecutingState
+                                )
+                            )
                         },
                         secondValue = userWritingState,
                         secondValueFun = {
                             userWritingState = !it
-                            chmodViewModel.onEvent(ChmodEvent.PermissionChanged(Classes.USER, userReadingState, userWritingState, userExecutingState))
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.USER,
+                                    userReadingState,
+                                    userWritingState,
+                                    userExecutingState
+                                )
+                            )
                         },
                         firstValue = userExecutingState,
                         firstValueFun = {
                             userExecutingState = !it
-                            chmodViewModel.onEvent(ChmodEvent.PermissionChanged(Classes.USER, userReadingState, userWritingState, userExecutingState))
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.USER,
+                                    userReadingState,
+                                    userWritingState,
+                                    userExecutingState
+                                )
+                            )
                         }
                     )
 
@@ -170,14 +191,41 @@ fun ChmodScreen(
                         fourthValue = groupReadingState,
                         fourthValueFun = {
                             groupReadingState = !it
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.GROUP,
+                                    groupReadingState,
+                                    groupWritingState,
+                                    groupExecutingState
+
+                                )
+                            )
                         },
                         secondValue = groupWritingState,
                         secondValueFun = {
                             groupWritingState = !it
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.GROUP,
+                                    groupReadingState,
+                                    groupWritingState,
+                                    groupExecutingState
+
+                                )
+                            )
                         },
                         firstValue = groupExecutingState,
                         firstValueFun = {
                             groupExecutingState = !it
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.GROUP,
+                                    groupReadingState,
+                                    groupWritingState,
+                                    groupExecutingState
+
+                                )
+                            )
                         }
                     )
                 }
@@ -193,14 +241,41 @@ fun ChmodScreen(
                         fourthValue = otherReadingState,
                         fourthValueFun = {
                             otherReadingState = !it
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.OTHER,
+                                    otherReadingState,
+                                    otherWritingState,
+                                    otherExecutingState
+
+                                )
+                            )
                         },
                         secondValue = otherWritingState,
                         secondValueFun = {
                             otherWritingState = !it
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.OTHER,
+                                    otherReadingState,
+                                    otherWritingState,
+                                    otherExecutingState
+
+                                )
+                            )
                         },
                         firstValue = otherExecutingState,
                         firstValueFun = {
                             otherExecutingState = !it
+                            chmodViewModel.onEvent(
+                                ChmodEvent.PermissionChanged(
+                                    Classes.OTHER,
+                                    otherReadingState,
+                                    otherWritingState,
+                                    otherExecutingState
+
+                                )
+                            )
                         }
                     )
                 }
