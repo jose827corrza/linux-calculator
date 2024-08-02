@@ -1,8 +1,5 @@
 package com.josedev.linuxcalculator.screens
 
-import android.content.res.Configuration
-import android.util.Log
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.josedev.linuxcalculator.components.CheckBoxesGroup
+import com.josedev.linuxcalculator.components.SwitchGroup
 import com.josedev.linuxcalculator.presentation.ChmodViewModel
 import com.josedev.linuxcalculator.repository.ChmodEvent
 import com.josedev.linuxcalculator.utils.Classes
@@ -132,15 +129,16 @@ fun ChmodScreen(
                 .fillMaxWidth()
                 .weight(1f)
         ){
+
             Row {
                 Column (
                     modifier = Modifier
                         .fillMaxHeight()
-                        .weight(1f),
+                        .weight(0.7f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     Text(text = "Users", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp))
-                    CheckBoxesGroup(
+                    SwitchGroup(
                         modifier = Modifier.fillMaxHeight(),
                         fourthValue = userReadingState,
                         fourthValueFun = {
@@ -167,7 +165,7 @@ fun ChmodScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     Text(text = "Groups", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp))
-                    CheckBoxesGroup(
+                    SwitchGroup(
                         modifier = Modifier.fillMaxHeight(),
                         fourthValue = groupReadingState,
                         fourthValueFun = {
@@ -190,7 +188,7 @@ fun ChmodScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     Text(text = "Others", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp))
-                    CheckBoxesGroup(
+                    SwitchGroup(
                         modifier = Modifier.fillMaxHeight(),
                         fourthValue = otherReadingState,
                         fourthValueFun = {
