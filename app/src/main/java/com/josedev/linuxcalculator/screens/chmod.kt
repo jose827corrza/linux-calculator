@@ -1,5 +1,6 @@
 package com.josedev.linuxcalculator.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -19,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,6 +29,8 @@ import androidx.compose.ui.unit.sp
 import com.josedev.linuxcalculator.components.SwitchGroup
 import com.josedev.linuxcalculator.presentation.ChmodViewModel
 import com.josedev.linuxcalculator.repository.ChmodEvent
+import com.josedev.linuxcalculator.ui.theme.Purple40
+import com.josedev.linuxcalculator.ui.theme.Purple80
 import com.josedev.linuxcalculator.utils.Classes
 
 @Composable
@@ -68,14 +73,17 @@ fun ChmodScreen(
 
     Column(
         modifier = modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(Color.Black),
         horizontalAlignment  = Alignment.CenterHorizontally,
     ) {
         Text(
             text = " CHMOD PERMISSIONS",
             fontWeight = FontWeight.Bold,
             fontSize = 32.sp,
-            modifier = Modifier.padding())
+            modifier = Modifier.padding(0.dp, 20.dp),
+            color = Color.Green
+        )
         Box (
             modifier = Modifier
                 .fillMaxWidth()
@@ -96,30 +104,34 @@ fun ChmodScreen(
                         text = "Numbers",
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 24.sp,
-                        modifier = Modifier.padding(1.dp))
+                        modifier = Modifier.padding(1.dp),
+                        color = Color.Green
+                    )
                     Text(
                         text = state.user.toString() + state.group.toString() + state.other.toString(),
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 24.sp,
-                        modifier = Modifier.padding())
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 38.sp,
+                        modifier = Modifier.padding(),
+                        color = Purple80
+                    )
                 }
                 Spacer(modifier = Modifier.size(10.dp))
-                Column (
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Text(
-                        text = "Letters",
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 24.sp,
-                        modifier = Modifier.padding(1.dp)
-                    )
-                    Text(
-                        text = state.lettersCode,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 24.sp,
-                        modifier = Modifier.padding()
-                    )
-                }
+//                Column (
+//                    horizontalAlignment = Alignment.CenterHorizontally
+//                ){
+//                    Text(
+//                        text = "Letters",
+//                        fontWeight = FontWeight.ExtraBold,
+//                        fontSize = 24.sp,
+//                        modifier = Modifier.padding(1.dp)
+//                    )
+//                    Text(
+//                        text = state.lettersCode,
+//                        fontWeight = FontWeight.Normal,
+//                        fontSize = 24.sp,
+//                        modifier = Modifier.padding()
+//                    )
+//                }
             }
 
         }
@@ -137,7 +149,7 @@ fun ChmodScreen(
                         .weight(0.7f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
-                    Text(text = "Users", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp))
+                    Text(text = "Users", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp), color = Color.Green)
                     SwitchGroup(
                         modifier = Modifier.fillMaxHeight(),
                         fourthValue = userReadingState,
@@ -185,7 +197,7 @@ fun ChmodScreen(
                         .weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
-                    Text(text = "Groups", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp))
+                    Text(text = "Groups", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp), color = Color.Green)
                     SwitchGroup(
                         modifier = Modifier.fillMaxHeight(),
                         fourthValue = groupReadingState,
@@ -235,7 +247,7 @@ fun ChmodScreen(
                         .weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
-                    Text(text = "Others", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp))
+                    Text(text = "Others", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(10.dp), color = Color.Green)
                     SwitchGroup(
                         modifier = Modifier.fillMaxHeight(),
                         fourthValue = otherReadingState,
