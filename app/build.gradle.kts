@@ -1,9 +1,16 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
+
+val appId = gradleLocalProperties(rootDir, providers)
+    .getProperty("APP_ID", "")
+val adId = gradleLocalProperties(rootDir, providers)
+    .getProperty("AD_ID", "")
 
 android {
     namespace = "com.josedev.linuxcalculator"
@@ -20,6 +27,16 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        resValue(
+            "string",
+            "app_id",
+            appId
+        )
+        resValue(
+            "string",
+            "ad_id",
+            adId
+        )
     }
 
     buildTypes {
@@ -72,4 +89,7 @@ dependencies {
     // Hilt
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    // Ad mob
+    implementation("com.google.android.gms:play-services-ads:23.2.0")
 }
