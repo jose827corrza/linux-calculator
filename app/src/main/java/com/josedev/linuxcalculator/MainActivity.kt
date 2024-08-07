@@ -13,6 +13,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.android.gms.ads.MobileAds
@@ -42,12 +43,15 @@ class MainActivity : ComponentActivity() {
 
 Column {
     ChmodScreen(
-        modifier = Modifier.fillMaxWidth().weight(1f),
+        modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f),
         chmodViewModel = chmodViewModel
     )
     BannerAd(
         modifier = Modifier.fillMaxWidth(),
-        adId = "ca-app-pub-3940256099942544/6300978111"
+        adId = getString(R.string.ad_id)
+//        adId = "ca-app-pub-3940256099942544/6300978111"
     )
 }
 
