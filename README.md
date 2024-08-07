@@ -24,8 +24,8 @@ in root project folder.
 
 After that, you must ensure to write the following variables:
 
->APP_ID=ca-app-pub-3940256099942544~3347511713
->AD_ID=ca-app-pub-3940256099942544/6300978111
+> APP_ID=ca-app-pub-3940256099942544~3347511713
+> AD_ID=ca-app-pub-3940256099942544/6300978111
 
 These values are to be able to test ads without breaking Google Normative.
 
