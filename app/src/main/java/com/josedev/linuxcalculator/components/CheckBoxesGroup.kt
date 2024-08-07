@@ -71,7 +71,10 @@ fun SwitchGroup(
                     checkedTrackColor = Color.hsl(139f, 0.25f, 0.24f),
                     uncheckedThumbColor = Color.hsl(360f, 1.00f, 0.6f),
                     uncheckedTrackColor = Color.hsl(360f, 0.25f, 0.3f),
-                )
+                ),
+                thumbContent = {
+                    if (secondValue) Icon(imageVector = Icons.Filled.Check, contentDescription = "ON")
+                }
             )
             Text(
                 text = "Writing",
@@ -94,7 +97,10 @@ fun SwitchGroup(
                     checkedTrackColor = Color.hsl(139f, 0.25f, 0.24f),
                     uncheckedThumbColor = Color.hsl(360f, 1.00f, 0.6f),
                     uncheckedTrackColor = Color.hsl(360f, 0.25f, 0.3f),
-                )
+                ),
+                thumbContent = {
+                    if (firstValue) Icon(imageVector = Icons.Filled.Check, contentDescription = "ON")
+                }
             )
             Text(
                 text = "Execution",

@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.josedev.linuxcalculator.components.BannerAd
 import com.josedev.linuxcalculator.components.SwitchGroup
 import com.josedev.linuxcalculator.presentation.ChmodViewModel
 import com.josedev.linuxcalculator.repository.ChmodEvent
@@ -81,7 +82,7 @@ fun ChmodScreen(
             text = " CHMOD PERMISSIONS",
             fontWeight = FontWeight.Bold,
             fontSize = 32.sp,
-            modifier = Modifier.padding(0.dp, 20.dp),
+            modifier = Modifier.padding(0.dp, 60.dp),
             color = Color.Green
         )
         Box (
