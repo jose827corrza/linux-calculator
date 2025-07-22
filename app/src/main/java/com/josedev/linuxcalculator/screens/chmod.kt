@@ -104,14 +104,14 @@ fun ChmodScreen(
                     Text(
                         text = "Numbers",
                         fontWeight = FontWeight.ExtraBold,
-                        fontSize = 24.sp,
+                        fontSize = 30.sp,
                         modifier = Modifier.padding(1.dp),
                         color = Color.Green
                     )
                     Text(
                         text = state.user.toString() + state.group.toString() + state.other.toString(),
                         fontWeight = FontWeight.Bold,
-                        fontSize = 38.sp,
+                        fontSize = 52.sp,
                         modifier = Modifier.padding(),
                         color = Purple80
                     )
