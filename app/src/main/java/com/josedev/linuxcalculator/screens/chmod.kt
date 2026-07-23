@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -26,11 +25,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.josedev.linuxcalculator.components.BannerAd
 import com.josedev.linuxcalculator.components.SwitchGroup
 import com.josedev.linuxcalculator.presentation.ChmodViewModel
 import com.josedev.linuxcalculator.repository.ChmodEvent
-import com.josedev.linuxcalculator.ui.theme.Purple40
 import com.josedev.linuxcalculator.ui.theme.Purple80
 import com.josedev.linuxcalculator.utils.Classes
 

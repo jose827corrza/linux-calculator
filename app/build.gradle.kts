@@ -3,6 +3,7 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
@@ -14,12 +15,12 @@ val adId = gradleLocalProperties(rootDir, providers)
 
 android {
     namespace = "com.josedev.linuxcalculator"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.josedev.linuxcalculator"
         minSdk = 30
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 3
         versionName = "1.1"
 
@@ -49,17 +50,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources {
@@ -87,9 +85,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-
-    // Ad mob
-    implementation("com.google.android.gms:play-services-ads:23.2.0")
+    implementation("com.google.dagger:hilt-android:2.54")
+    kapt("com.google.dagger:hilt-android-compiler:2.54")
 }
