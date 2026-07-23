@@ -4,14 +4,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
-    id("kotlin-kapt")
+    alias(libs.plugins.ksp)
     id("com.google.dagger.hilt.android")
 }
-
-val appId = gradleLocalProperties(rootDir, providers)
-    .getProperty("APP_ID", "")
-val adId = gradleLocalProperties(rootDir, providers)
-    .getProperty("AD_ID", "")
 
 android {
     namespace = "com.josedev.linuxcalculator"
@@ -21,23 +16,13 @@ android {
         applicationId = "com.josedev.linuxcalculator"
         minSdk = 30
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.1"
+        versionCode = 4
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
-        resValue(
-            "string",
-            "app_id",
-            appId
-        )
-        resValue(
-            "string",
-            "ad_id",
-            adId
-        )
     }
 
     buildTypes {
@@ -85,6 +70,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.54")
-    kapt("com.google.dagger:hilt-android-compiler:2.54")
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 }
